@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      const val = 100;
+      //val = 150;
+
+      try {
+        val = 200;
+      } catch (error) {
+        console.log(err);
+      } finally {
+        console.log("finally 문 :" + val);
+      }
+    </script>
+
+    <script src="main.js">
+
+
+
+        //   console.log("프로그램 시작됨");
+        //   const myfunc = (type, arr) => {
+        //     let result = arr[0];
+        //     if (type == "min") {
+        //       for (const iterator of arr) {
+        //         if (iterator < result) result = iterator;
+        //       }
+        //     } else if (type == "max") {
+        //       for (const iterator of arr) {
+        //         if (iterator > result) result = iterator;
+        //       }
+        //     } else {
+        //       console.log("타입이 잘못됬스비낟.");
+        //       return;
+        //     }
+        //     // console.log(type);
+        //     // console.log(arr);
+        //     // console.log("-----------");
+        //     return result;
+        //   };
+        //   const inputArr = [10, 50, 2, 10, 500, 20, 62];
+
+        //   console.log(myfunc("min", inputArr));
+        //   console.log(myfunc("max", inputArr));
+
+        //   myfunc("fsdafs", inputArr);
+        //   const 알바생 = (name, 시급, 근무시간) => {
+        //     if (!name) {
+        //       console.log("이름을 입력하세요");
+        //       return;
+        //     }
+        //     //1.숫자가 아니거나 => typeof(시급) !=='number'
+        //     //2.0보다 작거나 같을때     0>=시급
+        //     //3.undefined 일때      시급 ===undefined
+        //     //4.최저시급보다 잘을때 9620>=시급
+
+        //     if (시급 === undefined) {
+        //       console.log("시급을 입력하시오.");
+        //       return;
+        //     }
+        //     if (typeof 시급 !== "number") {
+        //       console.log("시급의 값을 숫자로 입력하시오.");
+        //       return;
+        //     }
+        //     if (9620 > 시급) {
+        //       console.log("최저시급보다 높히세요");
+        //       return;
+        //     }
+        //     console.log(`이름 : ${name}`);
+        //     console.log(`시급 : ${시급.toLocaleString()}`);
+        //     console.log(`근무시간 : ${근무시간}`);
+        //     console.log(`하루 일당은 : ${(시급 * 근무시간).toLocaleString()}`);
+        //     console.log("--------------------------");
+        //   };
+
+        //   //   알바생("강석원", 9620, 4);
+        //   //   알바생("박종훈", 10000, 3);
+        //   알바생("ㅁㄴㅁㄴㅇ", 10111);
+        //   알바생();
+        //   //   알바생("이슬비", 11000);
+      //
+    </script>
+  </head>
+  <body></body>
+</html>

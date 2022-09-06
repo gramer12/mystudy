@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- <script src="main1.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+    <script>
+      const products = [
+        {
+          제품명: "탐사수",
+          가격: 500,
+          무개: 50,
+        },
+        {
+          제품명: "화장지",
+          가격: 250,
+          무개: 10,
+        },
+        {
+          제품명: "모니터",
+          가격: 100000,
+          무개: 200,
+        },
+        {
+          제품명: "마우스",
+          가격: 12000,
+          무개: 40,
+        },
+      ];
+      const result = _.orderBy(products, ["가격", "무개"], ["asc", "asc"]);
+      const result1 = _.sortBy(products, ["가격", "무개"]).reverse("무개");
+
+      console.log(result);
+      console.log(result1);
+    </script>
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>object 실습</h1>
+  </body>
+</html>
