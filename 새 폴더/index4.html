@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      #avatar {
+        position: absolute;
+        top: 40px;
+        left: 40px;
+      }
+    </style>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        let x = 0;
+        let y = 0;
+        let sd = document.getElementById("avatar");
+
+        var regex = /[^0-9]/g;
+        x = window.getComputedStyle(sd).top.replace(regex, "");
+        y = window.getComputedStyle(sd).left.replace(regex, "");
+        const person = document.querySelector("#avatar");
+        person.addEventListener("click", () => {
+          console.log("asd");
+        });
+        const elem = document.getElementById("#avatar");
+        document.addEventListener("keydown", (a) => {
+          switch (a.key) {
+            case "ArrowDown":
+              y += 5;
+              document.getElementById("avatar").style.top = y + "px";
+
+              break;
+            case "ArrowUp":
+              y -= 5;
+              document.getElementById("avatar").style.top = y + "px";
+              break;
+            case "ArrowLeft":
+              x -= 5;
+              document.getElementById("avatar").style.left = x + "px";
+              break;
+            case "ArrowRight":
+              x += 5;
+              document.getElementById("avatar").style.left = x + "px";
+
+              break;
+          }
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div id="avatar">🤦‍♂️🤦‍♂️</div>
+  </body>
+</html>

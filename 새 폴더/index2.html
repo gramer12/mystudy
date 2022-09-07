@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .divELE {
+        cursor: default;
+      }
+    </style>
+    <title>Document</title>
+  </head>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      //document.body.innerHTML += "<div>DIV입니다.</div>";
+      //   const newH1 = document.createElement("h1");
+      //   console.log(newH1);
+      //   newH1.textContent = "새로만든 DIV입니다.";
+      //   const two = document.querySelector("#two");
+      //   document.body.appendChild(newH1);
+
+      //   const copyedH1 = newH1.cloneNode(newH1);
+      //   two.appendChild(copyedH1);
+      //   copyedH1.textContent = "새로만든 DIV입니다.";
+      //   const del요소 = document.querySelector("#two");
+      //   console.log(del요소);
+
+      //   const 부모 = del요소.parentNode;
+      //   console.log(부모);
+      //   부모.removeChild(del요소);
+
+      const 원 = document.querySelector("#one");
+      const 투 = document.querySelector("#two");
+      const 쓰리 = document.querySelector("#three");
+      const debug = document.querySelector("#debug");
+      const 원전용콜백 = () => {
+        console.log("원 클릭");
+        debug.textContent = "원클릭되었습니다.";
+      };
+      const 투전용콜백 = () => {};
+
+      원.addEventListener("click", 원전용콜백);
+      투.addEventListener("click", () => {
+        console.log("투 클릭");
+        debug.textContent = "투클릭되었습니다.";
+      });
+      쓰리.addEventListener("click", () => {
+        console.log("쓰리 클릭");
+        debug.textContent = "쓰리클릭되었습니다.";
+      });
+
+      원.removeEventListener("click", 원전용콜백);
+    });
+  </script>
+  <body>
+    <div class="container">
+      <div id="one">첫번째</div>
+      <div id="two">두번째</div>
+      <div id="three">세번째</div>
+      <div id="debug">원클릭되었습니다.</div>
+    </div>
+  </body>
+</html>

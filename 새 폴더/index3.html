@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      #target {
+        border: 1px solid gray;
+        display: inline;
+        border-radius: 2px;
+        background-color: #efefef;
+        font-size: 13px;
+        padding: 2.5px 7px;
+        cursor: default;
+      }
+
+      #target: hover {
+        background-color: #e0e0e0;
+        border: 1px solid rgb(114, 114, 114);
+      }
+    </style>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const btnConnect = document.querySelector(".connect");
+        const btnDisConnect = document.querySelector(".disconnect");
+        const stateMess = document.querySelector("#state");
+        const target = document.querySelector("#target");
+
+        let stat = false;
+        const btnFun = () => {
+          const targetnum = document.querySelector("#count");
+          let tg = Number(targetnum.textContent);
+          tg++;
+          targetnum.textContent = tg;
+        };
+
+        btnConnect.addEventListener("click", () => {
+          stat = true;
+          stateMess.textContent = "연결됨" + stat;
+
+          target.addEventListener("click", btnFun);
+        });
+
+        btnDisConnect.addEventListener("click", () => {
+          stat = false;
+          stateMess.textContent = "끊킴" + stat;
+
+          target.removeEventListener("click", btnFun);
+        });
+      });
+    </script>
+  </head>
+
+  <body>
+    <!-- <div id ="container"></div> -->
+    <div id="target">날눌러봐</div>
+    <div>클릭회수 : <span id="count">0</span></div>
+    <button class="connect">이벤트 연결</button>
+    <button class="disconnect">이벤트 삭제</button>
+    <p>이벤트 연결 상태 : <span id="state">등록됨</span></p>
+  </body>
+</html>

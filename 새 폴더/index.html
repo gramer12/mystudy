@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Document</title>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const coverList = document.querySelectorAll(".cover");
+        console.log(coverList);
+        const a = [100, 110, 120, 130, 140];
+        /*
+        for (let i = 0; i < 5; i++) {
+          coverList[i].setAttribute(
+            "src",
+            `https://api.lorem.space/image?w=${a[i]}&h=${a[i]}`
+          );
+        }
+        */
+
+        coverList.forEach((item, index) => {
+          item.setAttribute(
+            "src",
+            `http://placekitten.com/g/${(index + 1) * 50}/${(index + 1) * 50}`
+          );
+        });
+        // console.log("로딩됬나?");
+        // document.body.textContent = " ";
+        // document.body.textContent = "<div>선문대학교</div>";
+        // document.body.innerHTML += "<div>선문대학교</div>";
+        //const sm = document.querySelector(".sunmoon");
+        //sm.textContent = "선문대학교";
+        // console.log(sm.className);
+        // sm.className = "asan";
+
+        //console.log(sm.classList);
+        // const eleImage = document.querySelector(".cover");
+        // console.log(eleImage);
+        // eleImage.setAttribute(
+        //   "src",
+        //   "https://api.lorem.space/image?w=150&h=180"
+        // );
+
+        // const attr = eleImage.getAttribute("src");
+        // console.log(`src 속성의 값은 : ${attr}`);
+      });
+      //   const _class = "sunmoon btn btn-lg btn-red";
+      //   const classArr = _class.split(" ");
+      //   console.log(classArr);
+    </script>
+    <style>
+      #sun {
+        color: red;
+      }
+
+      #moon {
+        color: blue;
+      }
+
+      #container {
+        background-color: aqua;
+      }
+      #container span {
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="sunmoon btn btn-lg btn-red">DIV 태그 입니다</div>
+    <div id="container">
+      <span name="first">안</span>
+      <span id="sun" name="second">녕</span>
+      <span id="moon">하</span>
+      <span class="sun"> 세</span>
+      <span class="sun"> 세1</span>
+      <span class="sun"> 세2</span>
+      <span class="sun"> 세3</span>
+      <span>요</span>
+    </div>
+
+    <!-- <img
+      src="https://api.lorem.space/image/album?w=150&h=150
+    "
+      alt=""
+    />
+    <img src="" alt="" class="cover" /> -->
+
+    <img src="" alt="" class="cover" />
+    <img src="" alt="" class="cover" />
+    <img src="" alt="" class="cover" />
+    <img src="" alt="" class="cover" />
+    <img src="" alt="" class="cover" />
+    <script>
+      //   const sun = document.querySelector("#sun");
+      //   //sun.addEventListener();
+      //   function plistener() {
+      //     console.log(`누른 클릭입니다,`);
+      //   }
+      //   function olistener() {
+      //     console.log(`떈 클릭입니다,`);
+      //   }
+      //   //   const listener = () => {};
+
+      //   document.addEventListener("mousedown", plistener);
+      //   document.addEventListener("mouseup", olistener);
+
+      //   const div = document.querySelector(".sunmoon");
+      //   console.log(div);
+      //   const sun = document.querySelector("#container .sun");
+      //   console.log(sun.textContent);
+      //   const suns = document.querySelectorAll("span,div, .sun");
+      //   console.log(suns);
+
+      //   const result = document.getElementById("moon"); //아이디 지정
+      //   console.log(result.textContent);
+      //   const result2 = document.getElementsByClassName("sun");
+      //   console.log(result2[0].textContent);
+      //   const spans = document.getElementsByTagName("span");
+      //   console.log(spans[0].textContent);
+      //   const name = document.getElementsByName("first");
+      //   console.log(name[0].textContent);
+    </script>
+  </body>
+</html>
