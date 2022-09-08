@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Document</title>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const textareadata = document.querySelector("#area");
+        const count = document.querySelector("#count");
+        textareadata.addEventListener("keydown", () => {
+          const inputData = textareadata.value;
+          console.log(inputData.length);
+          count.textContent = inputData.length;
+        });
+        let intervalID;
+        textareadata.addEventListener("focus", () => {
+          if (!intervalID) {
+            intervalID = setInterval(() => {
+              const inputData = textareadata.value;
+              console.log(inputData.length);
+
+              count.textContent = inputData.length;
+            }, 1000);
+          }
+        });
+        textareadata.addEventListener("blur", () => {
+          if (intervalID) {
+            clearInterval(intervalID);
+          }
+        });
+
+        // textareadata.addEventListener("change", () => {
+        //   const inputData = textareadata.value;
+        //   console.log(inputData.length);
+        //   const count = document.querySelector("#count");
+        //   count.textContent = inputData.length;
+        // });
+      });
+    </script>
+  </head>
+  <body>
+    <h1>글자수 세기</h1>
+    <textarea id="area" cols="30" rows="10"></textarea>
+    <h2>글자수 : <span id="count">0</span></h2>
+  </body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      //   document.onreadystatechange = (event) => {
+      //     const state = document.readyState;
+      //     console.log(state);
+      //   };
+      //   console.log(document.readyState);
+
+      //   setTimeout(() => {
+      //     document.readyState = "loading";
+      //     console.log(document.readyState);
+      //   }, 2000);
+
+      //   document.addEventListener("DOMContentLoaded", () => {
+      //     console.log("로딩됨");
+
+      //     window.onload = () => {
+      //       console.log("ㄹ딩");
+      //     };
+      //     const container = document.querySelector("#container");
+      //     console.log(container);
+      //     container.style.color = "red";
+      // container.onclick = () => {
+      //   console.log("클릭됨");
+      // };
+      //});
+
+      //   const testFn = (event) => {
+      //     console.log(event);
+      //   };
+      document.addEventListener("DOMContentLoaded", () => {
+        const submit = document.querySelector("#submit");
+
+        console.log("asdd");
+        submit.addEventListener("click", () => {
+          const userId = document.querySelector("#userId");
+          const psssword = document.querySelector(".psssword");
+          console.log(userId.value);
+          console.log(psssword.value);
+        });
+      });
+    </script>
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- <div id="container">초기값</div> -->
+    <div id="loginForm">
+      <!-- <input class="userId" type="text" placeholder="로그인 입력." /> -->
+      <textarea name="" id="userId" cols="30" rows="10"></textarea>
+      <input class="psssword" type="text" placeholder="패스워드 입력." />
+      <button id="submit">로그인</button>
+    </div>
+  </body>
+</html>

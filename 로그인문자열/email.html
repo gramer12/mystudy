@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Document</title>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const id = document.querySelector("#id");
+        const submit = document.querySelector("#submit");
+        const error = document.querySelector(".error");
+        submit.addEventListener("click", () => {
+          const data = id.value;
+          if (data.split("@")[1]) {
+            const check = data.split("@")[1];
+            if (check.split(".")[1]) {
+              error.textContent = "정상";
+            } else {
+              error.textContent = "점이 없거나 점뒤가 없음";
+            }
+          } else {
+            error.textContent = "골뱅이가 없거나 골뱅이뒤가 없음";
+          }
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div>
+      <input type="text" id="id" placeholder="이메일을 입력하세요" />
+      <button id="submit">로그인</button>
+    </div>
+
+    <div>
+      <span class="error">오류 메시지</span>
+    </div>
+  </body>
+</html>
