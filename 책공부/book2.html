@@ -8,15 +8,20 @@
 
         select.addEventListener("change", (event) => {
           const options = event.currentTarget.options;
-          const index = event.currentTarget.options.selectedIndex;
-          p.textContent = `선택: ${options[index].textContent}`;
+          const list = [];
+          for (const option of options) {
+            if (option.selected) {
+              list.push(option.textContent);
+            }
+          }
+          p.textContent = `선랙 : ${list.join(",")}`;
         });
       });
     </script>
     <title>Document</title>
   </head>
   <body>
-    <select>
+    <select multiple>
       <option>떡볶이</option>
       <option>순대</option>
       <option>오뎅</option>

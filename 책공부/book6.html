@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const imgs = document.querySelectorAll("img");
+        imgs.forEach((imgs) => {
+          imgs.addEventListener("contextmenu", (event) => {
+            event.preventDefault();
+          });
+        });
+      });
+    </script>
+    <title>Document</title>
+  </head>
+  <body>
+    <img src="http://placekitten.com/300/300" />
+  </body>
+</html>

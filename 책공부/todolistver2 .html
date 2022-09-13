@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Document</title>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", (event) => {
+        const eleTodo = document.querySelector("#todoStr"); //입력창
+        const eleBtnAdd = document.querySelector("#btnAdd"); //등록 버튼
+        const eleTodoList = document.querySelector("#todo-list"); //입력된todo 추가할 컨테이너
+
+        const temp = localStorage.getItem("todoArr");
+        let todoArr = temp ? JSON.parse(temp) : [];
+
+        function saveTodo() {
+          localStorage.setItem("todoArr", JSON.stringify(todoArr));
+        }
+        function randerTodo() {
+          eleTodoList.innerHTML = ""; //자식 지우기 //전체다지우기
+
+          //모든 할일 목록 그리기
+          todoArr.forEach((element) => {
+            const div = document.createElement("div"); //부모컨테너
+            const ckbox = document.createElement("input"); //체크박스
+            const span = document.createElement("span"); //할일 문자열 표현
+            const button = document.createElement("button"); //삭제기능
+
+            ckbox.type = "checkbox";
+            ckbox.checked = element.checked;
+            if (true === element.checked) {
+              span.style.textDecoration = "line-through";
+            } else {
+              span.style.textDecoration = "";
+            }
+
+            ckbox.addEventListener("change", (event) => {
+              console.log(event.currentTarget.checked);
+              span.style.textDecoration = event.currentTarget.checked
+                ? "line-through"
+                : "";
+            });
+            span.textContent = element.todoStr;
+            button.textContent = "x";
+            button.setAttribute("data-ts", element.ts);
+            button.addEventListener("click", (event) => {
+              const ts = event.currentTarget.dataset;
+              todoArr = todoArr.filter((value) => {
+                console.log(value.ts);
+                console.log(ts);
+
+                if ("" + value.ts == "" + ts) return false;
+                else return true;
+              });
+              console.log(todoArr);
+              randerTodo();
+
+              // const target = event.currentTarget.parentNode;
+              // console.log(target);
+              // eleTodoList.removeChild(target);
+              // const _span =
+              //   event.currentTarget.parentNode.querySelector("span");
+
+              // const tempArr = todoArr.filter((value) => {
+              //   if (value.todoStr === _span.textContent) {
+              //     return false;
+              //   } else return true;
+              // });
+              // console.log(_span.textContent);
+            });
+
+            div.appendChild(ckbox);
+            div.appendChild(span);
+            div.appendChild(button);
+
+            eleTodoList.appendChild(div);
+          });
+        }
+        eleBtnAdd.addEventListener("click", (event) => {
+          const todostr = eleTodo.value.trim();
+          if (!todostr) return;
+          console.log(todostr);
+          console.log(todoStr);
+          todoArr.push({ todoStr: todostr, checked: false, ts: Date.now() });
+
+          eleTodo.value = "";
+          randerTodo();
+          saveTodo();
+          //console.log(eleTodo.value);
+        });
+        saveTodo();
+        randerTodo();
+        console.log(todoArr);
+      });
+    </script>
+  </head>
+  <body>
+    <h1>Todo List</h1>
+    <input type="text" id="todoStr" />
+    <button id="btnAdd">등록</button>
+    <div id="todo-list"></div>
+  </body>
+</html>
