@@ -34,7 +34,17 @@
             }
 
             ckbox.addEventListener("change", (event) => {
-              console.log(event.currentTarget.checked);
+              const buttonRemove = ckbox.parentElement.querySelector("button");
+              for (let i = 0; i < JSON.parse(temp).length; i++) {
+                if (buttonRemove.dataset.ts == JSON.parse(temp)[i].ts) {
+                  todoArr[i].checked = event.currentTarget.checked;
+                  console.log(todoArr);
+                }
+              }
+              saveTodo();
+
+              // const curTs=buttonRemove
+
               span.style.textDecoration = event.currentTarget.checked
                 ? "line-through"
                 : "";
@@ -45,13 +55,12 @@
             button.addEventListener("click", (event) => {
               const ts = event.currentTarget.dataset;
               todoArr = todoArr.filter((value) => {
-                console.log(value.ts);
-                console.log(ts);
-
-                if ("" + value.ts == "" + ts) return false;
+                if (value.ts == ts.ts) return false;
                 else return true;
               });
               console.log(todoArr);
+              saveTodo();
+
               randerTodo();
 
               // const target = event.currentTarget.parentNode;
