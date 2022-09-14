@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const btnStart = document.querySelector("#btnStart");
+        const btnStop = document.querySelector("#btnStop");
+        const btnRecord = document.querySelector("#btnRecord");
+        const recordRecord = document.querySelector("#recordRecord");
+
+        let timeMs = 0;
+        let timeSecond = 0;
+        let timeMin = 0;
+        let timeHour = 0;
+        const watchUiDivSpans = document
+          .querySelector("#watchUiDiv")
+          .querySelectorAll("span"); //index 0은 시간 ,2는 분 ,4는 초,6은 ms
+        let timerId;
+        btnStart.addEventListener("click", () => {
+          //시작버튼
+          if (!timerId) {
+            timerId = setInterval(() => {
+              timeMs++;
+
+              if (timeMs > 99) {
+                timeMs = 0;
+                timeSecond++;
+              }
+              if (timeSecond > 59) {
+                timeSecond = 0;
+                timeMin++;
+              }
+              if (timeMin > 59) {
+                timeMin = 0;
+                timeHour++;
+              }
+              watchUiDivSpans[6].textContent = timeMs;
+              watchUiDivSpans[4].textContent = timeSecond;
+              watchUiDivSpans[2].textContent = timeMin;
+              watchUiDivSpans[0].textContent = timeHour;
+              console.log("a");
+            }, 10);
+          }
+        });
+
+        btnStop.addEventListener("click", () => {
+          //멈춤과 초기화
+          if (timerId) {
+            clearInterval(timerId);
+
+            timerId = undefined;
+          } else {
+            timeMs = 0;
+            timeSecond = 0;
+            timeMin = 0;
+            timeHour = 0;
+            watchUiDivSpans[6].textContent = 00;
+            watchUiDivSpans[4].textContent = 00;
+            watchUiDivSpans[2].textContent = 00;
+            watchUiDivSpans[0].textContent = 00;
+            recordRecord.replaceChildren();
+          }
+        });
+
+        btnRecord.addEventListener("click", () => {
+          recordRecord.appendChild(
+            document.querySelector("#watchUiDiv").cloneNode(true)
+          );
+        });
+      });
+    </script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="watchUiDiv">
+      <span>00</span>
+      <span>:</span>
+      <span>00</span>
+      <span>:</span>
+      <span>00</span>
+      <span>:</span>
+      <span>00</span>
+    </div>
+    <div id="btnDiv">
+      <button id="btnRecord">RECORD</button>
+      <button id="btnStop">STOP</button>
+      <button id="btnStart">Start</button>
+    </div>
+    <div id="recordRecord"></div>
+  </body>
+</html>
